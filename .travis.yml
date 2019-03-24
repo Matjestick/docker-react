@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t matjestick/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run matjestick/docker-react npm run test -- --coverage
